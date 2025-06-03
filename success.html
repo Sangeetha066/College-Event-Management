@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Success</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding-top: 50px; }
+    .container { max-width: 600px; margin: auto; }
+    a.download-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    a.download-link:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>✅ PDF Generated Successfully!</h1>
+    <p>You can download your event report below:</p>
+    <a class="download-link" href="{{ url_for('download', filename=pdf_filename) }}">Download PDF</a>
+  </div>
+</body>
+</html>

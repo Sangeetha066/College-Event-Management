@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Event Submission Form</title>
+    <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input[type="text"], input[type="date"], select, textarea {
+            width: 100%; padding: 8px; box-sizing: border-box;
+        }
+        input[type="file"] {
+            margin-top: 5px;
+        }
+        .photo-desc {
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #555;
+        }
+        button {
+            margin-top: 20px; padding: 10px 15px; font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Submit Event Details</h2>
+
+<form method="POST" enctype="multipart/form-data" action="/">
+    <label for="univ_name">University Name:</label>
+    <input type="text" id="univ_name" name="univ_name" required />
+
+    <label for="college_name">College Name:</label>
+    <input type="text" id="college_name" name="college_name" required />
+
+    <label for="dropdown">Department:</label>
+    <select id="dropdown" name="dropdown" required>
+        <option value="">-- Select Department --</option>
+        <option value="Computer Science">Computer Science</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Mechanical">Mechanical</option>
+        <option value="Civil">Civil</option>
+    </select>
+
+    <label for="event_type">Event Type:</label>
+    <input type="text" id="event_type" name="event_type" required />
+
+    <label for="event_title">Event Title:</label>
+    <input type="text" id="event_title" name="event_title" required />
+
+    <label for="event_venue">Event Venue:</label>
+    <input type="text" id="event_venue" name="event_venue" required />
+
+    <label for="event_date">Event Date:</label>
+    <input type="date" id="event_date" name="event_date" required />
+
+    <label for="participant">Participants:</label>
+    <input type="text" id="participant" name="participant" required />
+
+    <label for="participant_count">Participant Count:</label>
+    <input type="text" id="participant_count" name="participant_count" required />
+
+    <label for="resource">Resource Person(s):</label>
+    <input type="text" id="resource" name="resource" />
+
+    <label for="event_description">Event Description:</label>
+    <textarea id="event_description" name="event_description" rows="6" required></textarea>
+
+    <label for="invitation_image">Invitation Image:</label>
+    <input type="file" id="invitation_image" name="invitation_image" accept="image/*" />
+
+    <label for="photos">Event Photos (up to 4):</label>
+    <input type="file" id="photos" name="photos[]" accept="image/*" multiple />
+
+    <label for="photo_desc">Photo Descriptions (comma separated):</label>
+    <input type="text" id="photo_desc" name="photo_desc" placeholder="Photo1 desc, Photo2 desc, ..." />
+
+    <button type="submit">Submit Event</button>
+</form>
+
+<script>
+    // Initialize CKEditor for the event description textarea
+    CKEDITOR.replace('event_description');
+</script>
+
+</body>
+</html>
